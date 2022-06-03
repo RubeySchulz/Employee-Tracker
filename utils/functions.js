@@ -104,6 +104,7 @@ async function addDepartment(){
                 console.log(err);
             }
             console.log('Department added');
+            masterSelection();
         })
     });
 
@@ -135,7 +136,6 @@ async function addRole(){
 
         inquirer.prompt(rolesQ)
         .then((answers) => {
-            console.log(answers);
             rows.forEach((element, index) => {
                 if(element.name === answers.department){
                     answers.department = element.id;
@@ -148,6 +148,7 @@ async function addRole(){
                     console.log(err);
                 }
                 console.log('Role added');
+                masterSelection();
             })
         });    
     })
@@ -180,7 +181,6 @@ async function addEmployee(){
 
         inquirer.prompt(employeeQ)
         .then((answers) => {
-            console.log(answers);
             rows.forEach((element, index) => {
                 if(element.title === answers.roles){
                     answers.roles = element.id;
@@ -193,6 +193,7 @@ async function addEmployee(){
                     console.log(err);
                 }
                 console.log('Employee added');
+                masterSelection();
             })
         });    
     })
@@ -243,7 +244,6 @@ async function updateEmployee(){
 
             inquirer.prompt(employeeQ)
             .then((answers) => {
-                console.log(answers);
                 rows.forEach((element) => {
                     if(element.title === answers.roles){
                         answers.roles = element.id;
@@ -263,6 +263,7 @@ async function updateEmployee(){
                         console.log(err);
                     }
                     console.log('Employee updated');
+                    masterSelection();
                 });
             });      
         });
